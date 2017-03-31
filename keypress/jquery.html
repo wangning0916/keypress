@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<style type="text/css">
+		.active{color: #ff0000;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="active">hell0 1</li>
+		<li>hell0 2</li>
+		<li>hell0 3</li>
+		<li>hell0 4</li>
+		<li>hell0 5</li>
+	</ul>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		var index = 0;
+		var length = $("li").length;
+		$(window).keydown(function(event) {
+			if(event.which == 40){
+				index ++;
+				if(index > length-1){
+					index = 0;
+				}
+				$("li").removeClass('active')
+				$("li").eq(index).addClass('active')
+			}
+			if(event.which == 38){
+				index --;
+				if(index < 0){
+					index = length -1;
+				}
+				$("li").removeClass('active')
+				$("li").eq(index).addClass('active')
+			}
+			console.log(event.which)
+		});
+	})
+</script>
